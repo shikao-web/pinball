@@ -29,7 +29,7 @@ public class ball : MonoBehaviour
                 transform.position = new Vector3(-2, 0, 0.3f);
                 transform.rotation = Quaternion.Euler(0, 0, 0); 
                 Rigidbody rb = this.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
+                rb.linearVelocity = Vector3.zero;
                 addForceCount = 0;
             }
             
