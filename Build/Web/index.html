@@ -19,7 +19,6 @@
       <div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Pinball_BlockDestroy</div>
       </div>
     </div>
@@ -59,7 +58,7 @@
         frameworkUrl: buildUrl + "/Web.framework.js",
         codeUrl: buildUrl + "/Web.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "sikao1st-games-product",
+        companyName: "shikao-web-games-product",
         productName: "Pinball_BlockDestroy",
         productVersion: "1.0.0",
         showBanner: unityShowBanner,
@@ -117,9 +116,7 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
+
 
               }).catch((message) => {
                 alert(message);
