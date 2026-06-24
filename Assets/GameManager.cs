@@ -15,7 +15,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        log_result_path = Path.Combine(Application.dataPath, "data", "log_result.csv");
+        if (Application.isEditor)
+        {
+            log_result_path = Path.Combine(Application.dataPath, "data", "log_result.csv");
+        }
+        else
+        {
+            log_result_path = Path.Combine(Application.persistentDataPath, "log_lesult.csv");
+        }
     }
 
     public void LogResult(int hp)
