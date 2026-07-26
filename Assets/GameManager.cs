@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
+using System.Text;
+using UnityEngine.Networking;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,13 @@ public class GameManager : MonoBehaviour
 
     // Log Data Export
     private string log_result_path;
+
+    [Serializable]
+    public class SampleLogData
+    {
+        public int hp;
+    }
+
 
     void Awake()
     {
@@ -28,29 +37,12 @@ public class GameManager : MonoBehaviour
     public void LogResult(int hp)
     {
 
-        if (!File.Exists(log_result_path))
-        {
-            File.WriteAllText(log_result_path, "timestamp,hp,result\n");
-        }
+        SampleLogData log = new SampleLogData { 
+            hp = hp,
+        };
 
-        string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        StartCoroutine(SendLogCoroutine(log));
 
-        int result;
-        if (hp == 0)
-        {
-            result = 0;
-        }
-        else
-        {
-            result = 1;
-        }
-
-        string line = $"{timestamp},{hp},{result}\n";
-
-        File.AppendAllText(
-            log_result_path,
-            line
-        );
     }
 
     // Start is called before the first frame update
@@ -87,5 +79,45 @@ public class GameManager : MonoBehaviour
         Debug.Log("ゲームオーバー");
         LogResult(0);
         SceneManager.LoadScene("20_GameOver");
+    }
+
+    public IEnumerator SendLogCoroutine(SampleLogData log)
+    {
+        // .env から設定値を取得
+        string supabaseUrl = EnvLoader.Get("SUPABASE_URL");
+        string supabaseKey = EnvLoader.Get("SUPABASE_KEY");
+        string tableName   = EnvLoader.Get("TABLE_NAME", "sample_logs"); // デフォルト値指定も可
+
+        if (string.IsNullOrEmpty(supabaseUrl) || string.IsNullOrEmpty(supabaseKey))
+        {
+            Debug.LogError("SUPABASE_URL または SUPABASE_KEY が .env に設定されていません。");
+            yield break;
+        }
+
+        string endpoint = $"{supabaseUrl}/rest/v1/{tableName}";
+        string jsonPayload = JsonUtility.ToJson(log);
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
+
+        using (UnityWebRequest request = new UnityWebRequest(endpoint, "POST"))
+        {
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+
+            request.SetRequestHeader("Content-Type", "application/json");
+            request.SetRequestHeader("apikey", supabaseKey);
+            request.SetRequestHeader("Authorization", $"Bearer {supabaseKey}");
+            request.SetRequestHeader("Prefer", "return=minimal");
+
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Supabaseへログ送信完了！");
+            }
+            else
+            {
+                Debug.LogError($"送信エラー: {request.error} | {request.downloadHandler.text}");
+            }
+        }
     }
 }
