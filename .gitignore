@@ -6,7 +6,7 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-# /[Bb]uild/
+/[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
@@ -99,5 +99,7 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 # env
+env.txt
+env.txt.meta
 Assets/Resources/env.txt
 Assets/Resources/env.txt.meta
