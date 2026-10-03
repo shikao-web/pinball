@@ -1,63 +1,101 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
-using System;
-using System.Text;
-using UnityEngine.Networking;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] enemies;
     public ball ball;
 
-    // Log Data Export
+    // ログ出力先
     private string log_result_path;
+    public readonly List<BlockDamageData> destroyedBlocks = new List<BlockDamageData>();
+
+    [Serializable]
+    public class BlockDamageData
+    {
+        public string object_name;
+        public int hp;
+    }
 
     [Serializable]
     public class SampleLogData
     {
-        public int hp;
+        public string datetime;
+        public int hp_of_final;
+        public List<BlockDamageData> hp_of_destroyed_per_block = new List<BlockDamageData>();
     }
 
-
-    void Awake()
+    private void Awake()
     {
         if (Application.isEditor)
         {
-            log_result_path = Path.Combine(Application.dataPath, "data", "log_result.csv");
+            // Assets/data フォルダーを作成してログを保存する
+            string logDir = Path.Combine(Application.dataPath, "data");
+            if (!Directory.Exists(logDir))
+            {
+                Directory.CreateDirectory(logDir);
+            }
+
+            log_result_path = Path.Combine(logDir, "log_result.jsonl");
         }
         else
         {
-            log_result_path = Path.Combine(Application.persistentDataPath, "log_lesult.csv");
+            // ビルド版では永続データフォルダーに保存する
+            log_result_path = Path.Combine(Application.persistentDataPath, "log_result.jsonl");
         }
     }
 
     public void LogResult(int hp)
     {
-
-        SampleLogData log = new SampleLogData { 
-            hp = hp,
+        SampleLogData log = new SampleLogData
+        {
+            datetime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+            hp_of_final = hp
         };
 
-        StartCoroutine(SendLogCoroutine(log));
+        // ゲーム中に記録した破壊済み敵の名前と、その時点のボールのHPを追加する
+        log.hp_of_destroyed_per_block.AddRange(destroyedBlocks);
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (DestroyAllEnemies() && SceneManager.GetActiveScene().name == "10_scene1-1" )
+        if (Application.isEditor)
         {
-            Debug.Log( "ゲームクリア" );
-            LogResult( ball.heart );
+            SaveLogToLocalJson(log);
+        }
+    }
+
+    // ログをJSON Lines形式でローカルファイルに追記する。
+    public void RecordEnemyDestroyed(string objectName)
+    {
+        destroyedBlocks.Add(new BlockDamageData
+        {
+            object_name = objectName,
+            hp = ball != null ? ball.heart : 0
+        });
+    }
+
+    private void SaveLogToLocalJson(SampleLogData logData)
+    {
+        try
+        {
+            string jsonString = JsonUtility.ToJson(logData);
+            File.AppendAllText(log_result_path, jsonString + Environment.NewLine, Encoding.UTF8);
+            Debug.Log($"ローカルログを保存しました: {log_result_path}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"ローカルログの保存に失敗しました: {e.Message}");
+        }
+    }
+
+    private void Update()
+    {
+        if (DestroyAllEnemies() && SceneManager.GetActiveScene().name == "10_scene1-1")
+        {
+            Debug.Log("ゲームクリア");
+            LogResult(ball.heart);
             SceneManager.LoadScene("30_GameClear");
         }
     }
@@ -71,6 +109,7 @@ public class GameManager : MonoBehaviour
                 return false;
             }
         }
+
         return true;
     }
 
@@ -79,45 +118,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("ゲームオーバー");
         LogResult(0);
         SceneManager.LoadScene("20_GameOver");
-    }
-
-    public IEnumerator SendLogCoroutine(SampleLogData log)
-    {
-        // .env から設定値を取得
-        string supabaseUrl = EnvLoader.Get("SUPABASE_URL");
-        string supabaseKey = EnvLoader.Get("SUPABASE_KEY");
-        string tableName   = EnvLoader.Get("TABLE_NAME", "sample_logs"); // デフォルト値指定も可
-
-        if (string.IsNullOrEmpty(supabaseUrl) || string.IsNullOrEmpty(supabaseKey))
-        {
-            Debug.LogError("SUPABASE_URL または SUPABASE_KEY が .env に設定されていません。");
-            yield break;
-        }
-
-        string endpoint = $"{supabaseUrl}/rest/v1/{tableName}";
-        string jsonPayload = JsonUtility.ToJson(log);
-        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
-
-        using (UnityWebRequest request = new UnityWebRequest(endpoint, "POST"))
-        {
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("apikey", supabaseKey);
-            request.SetRequestHeader("Authorization", $"Bearer {supabaseKey}");
-            request.SetRequestHeader("Prefer", "return=minimal");
-
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Supabaseへログ送信完了！");
-            }
-            else
-            {
-                Debug.LogError($"送信エラー: {request.error} | {request.downloadHandler.text}");
-            }
-        }
     }
 }

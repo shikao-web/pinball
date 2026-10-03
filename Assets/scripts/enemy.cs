@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,8 @@ public class enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        gameManager.RecordEnemyDestroyed(gameObject.name);
+        Destroy(gameObject);
     }
 
 

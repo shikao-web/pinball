@@ -104,3 +104,6 @@ env.txt
 env.txt.meta
 Assets/Resources/env.txt
 Assets/Resources/env.txt.meta
+
+# data
+Assets/data/
