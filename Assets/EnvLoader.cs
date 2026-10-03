@@ -7,29 +7,29 @@ public static class EnvLoader
     private static Dictionary<string, string> _envVars;
 
     /// <summary>
-    /// Resources/env.txt ‚ğ“Ç‚İ‚ñ‚Åƒƒ‚ƒŠ‚É•Û‚·‚é
+    /// Resources/env.txt ã‚’èª­ã¿è¾¼ã‚“ã§ãƒ¡ãƒ¢ãƒªã«ä¿æŒã™ã‚‹
     /// </summary>
     public static void Load()
     {
-        if (_envVars != null) return; // Šù‚É“Ç‚İ‚İÏ‚İ‚È‚çƒXƒLƒbƒv
+        if (_envVars != null) return; // æ—¢ã«èª­ã¿è¾¼ã¿æ¸ˆã¿ãªã‚‰ã‚¹ã‚­ãƒƒãƒ—
 
         _envVars = new Dictionary<string, string>();
 
-        // Assets/Resources/env.txt ‚ğ“Ç‚İ‚ŞiŠg’£q .txt ‚ÍÈ—ªj
+        // Assets/Resources/env.txt ã‚’èª­ã¿è¾¼ã‚€ï¼ˆæ‹¡å¼µå­ .txt ã¯çœç•¥ï¼‰
         TextAsset envFile = Resources.Load<TextAsset>("env");
         if (envFile == null)
         {
-            Debug.LogWarning("Resources/env.txt ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB");
+            Debug.LogWarning("Resources/env.txt ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚");
             return;
         }
 
-        // s‚²‚Æ‚É•ªŠ„‚µ‚Ä‰ğÍ
+        // è¡Œã”ã¨ã«åˆ†å‰²ã—ã¦è§£æ
         string[] lines = envFile.text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
         foreach (string line in lines)
         {
             string trimmed = line.Trim();
 
-            // ‹ós‚âƒRƒƒ“ƒgi#‚Ån‚Ü‚ésj‚ÍƒXƒLƒbƒv
+            // ç©ºè¡Œã‚„ã‚³ãƒ¡ãƒ³ãƒˆï¼ˆ#ã§å§‹ã¾ã‚‹è¡Œï¼‰ã¯ã‚¹ã‚­ãƒƒãƒ—
             if (string.IsNullOrEmpty(trimmed) || trimmed.StartsWith("#"))
                 continue;
 
@@ -39,7 +39,7 @@ public static class EnvLoader
                 string key = trimmed.Substring(0, equalIndex).Trim();
                 string value = trimmed.Substring(equalIndex + 1).Trim();
 
-                // ƒ_ƒuƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ““™‚ÅˆÍ‚Ü‚ê‚Ä‚¢‚éê‡‚Ìœ‹ˆ—
+                // ãƒ€ãƒ–ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ç­‰ã§å›²ã¾ã‚Œã¦ã„ã‚‹å ´åˆã®é™¤å»å‡¦ç†
                 if ((value.StartsWith("\"") && value.EndsWith("\"")) ||
                     (value.StartsWith("'") && value.EndsWith("'")))
                 {
@@ -52,7 +52,7 @@ public static class EnvLoader
     }
 
     /// <summary>
-    /// ƒL[‚É‘Î‰‚·‚é’l‚ğæ“¾‚·‚é
+    /// ã‚­ãƒ¼ã«å¯¾å¿œã™ã‚‹å€¤ã‚’å–å¾—ã™ã‚‹
     /// </summary>
     public static string Get(string key, string defaultValue = "")
     {
