@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 76.5
   gameManager: {fileID: 174996748}
 --- !u!65 &1462103
 BoxCollider:
@@ -277,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 39.9
   gameManager: {fileID: 174996748}
 --- !u!65 &16762232
 BoxCollider:
@@ -515,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 86.6
   gameManager: {fileID: 174996748}
 --- !u!65 &67036478
 BoxCollider:
@@ -641,6 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 95.8
   gameManager: {fileID: 174996748}
 --- !u!65 &144344434
 BoxCollider:
@@ -779,6 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35cedacd1189774daca637687a65213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GAME_DIFFICULTY: 50
   enemies:
   - {fileID: 781559264}
   - {fileID: 1148536821}
@@ -858,6 +863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 52.6
   gameManager: {fileID: 174996748}
 --- !u!65 &186961579
 BoxCollider:
@@ -984,6 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 6
   gameManager: {fileID: 174996748}
 --- !u!65 &269776891
 BoxCollider:
@@ -1110,6 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 1.3
   gameManager: {fileID: 174996748}
 --- !u!65 &311795278
 BoxCollider:
@@ -1236,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 8.7
   gameManager: {fileID: 174996748}
 --- !u!65 &327777403
 BoxCollider:
@@ -1362,6 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 23.3
   gameManager: {fileID: 174996748}
 --- !u!65 &328391013
 BoxCollider:
@@ -1488,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 36
   gameManager: {fileID: 174996748}
 --- !u!65 &353203154
 BoxCollider:
@@ -1614,6 +1625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 71.2
   gameManager: {fileID: 174996748}
 --- !u!65 &431256389
 BoxCollider:
@@ -1740,6 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 66.6
   gameManager: {fileID: 174996748}
 --- !u!65 &434757552
 BoxCollider:
@@ -2139,6 +2152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 0
   gameManager: {fileID: 174996748}
 --- !u!65 &491838232
 BoxCollider:
@@ -2265,6 +2279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 64.4
   gameManager: {fileID: 174996748}
 --- !u!65 &492763119
 BoxCollider:
@@ -2459,6 +2474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 65.8
   gameManager: {fileID: 174996748}
 --- !u!65 &547107227
 BoxCollider:
@@ -2585,6 +2601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 39
   gameManager: {fileID: 174996748}
 --- !u!65 &714226272
 BoxCollider:
@@ -2711,6 +2728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 13.5
   gameManager: {fileID: 174996748}
 --- !u!65 &721086714
 BoxCollider:
@@ -2837,6 +2855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 24.2
   gameManager: {fileID: 174996748}
 --- !u!65 &728758136
 BoxCollider:
@@ -2963,6 +2982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 15.6
   gameManager: {fileID: 174996748}
 --- !u!65 &759917216
 BoxCollider:
@@ -3089,6 +3109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 6.1
   gameManager: {fileID: 174996748}
 --- !u!65 &763564006
 BoxCollider:
@@ -3215,6 +3236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 95.1
   gameManager: {fileID: 174996748}
 --- !u!65 &771567436
 BoxCollider:
@@ -3453,6 +3475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 55.1
   gameManager: {fileID: 174996748}
 --- !u!65 &781559267
 BoxCollider:
@@ -3985,6 +4008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 4.1
   gameManager: {fileID: 174996748}
 --- !u!65 &983463419
 BoxCollider:
@@ -4111,6 +4135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 100
   gameManager: {fileID: 174996748}
 --- !u!65 &1045475231
 BoxCollider:
@@ -4237,6 +4262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 82.3
   gameManager: {fileID: 174996748}
 --- !u!65 &1075005677
 BoxCollider:
@@ -4363,6 +4389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 55.1
   gameManager: {fileID: 174996748}
 --- !u!65 &1100060741
 BoxCollider:
@@ -4586,6 +4613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 17.6
   gameManager: {fileID: 174996748}
 --- !u!65 &1148536824
 BoxCollider:
@@ -4712,6 +4740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 21.8
   gameManager: {fileID: 174996748}
 --- !u!65 &1197383439
 BoxCollider:
@@ -4838,6 +4867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 99.4
   gameManager: {fileID: 174996748}
 --- !u!65 &1200773821
 BoxCollider:
@@ -4964,6 +4994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 35.9
   gameManager: {fileID: 174996748}
 --- !u!65 &1395673952
 BoxCollider:
@@ -5090,6 +5121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 10.1
   gameManager: {fileID: 174996748}
 --- !u!65 &1397200362
 BoxCollider:
@@ -5216,6 +5248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 86
   gameManager: {fileID: 174996748}
 --- !u!65 &1414548328
 BoxCollider:
@@ -5417,6 +5450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 36
   gameManager: {fileID: 174996748}
 --- !u!65 &1542097284
 BoxCollider:
@@ -5589,6 +5623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 8.7
   gameManager: {fileID: 174996748}
 --- !u!65 &1588986623
 BoxCollider:
@@ -5715,6 +5750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 24.2
   gameManager: {fileID: 174996748}
 --- !u!65 &1629072565
 BoxCollider:
@@ -5841,6 +5877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 65.4
   gameManager: {fileID: 174996748}
 --- !u!65 &1742338227
 BoxCollider:
@@ -5967,6 +6004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 15.1
   gameManager: {fileID: 174996748}
 --- !u!65 &1768208636
 BoxCollider:
@@ -6218,6 +6256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 10.7
   gameManager: {fileID: 174996748}
 --- !u!65 &1824723049
 BoxCollider:
@@ -6419,6 +6458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 1.6
   gameManager: {fileID: 174996748}
 --- !u!65 &1848678007
 BoxCollider:
@@ -6545,6 +6585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 88.7
   gameManager: {fileID: 174996748}
 --- !u!65 &1866322847
 BoxCollider:
@@ -6912,6 +6953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 62.2
   gameManager: {fileID: 174996748}
 --- !u!65 &1943289186
 BoxCollider:
@@ -7038,6 +7080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 16.3
   gameManager: {fileID: 174996748}
 --- !u!65 &1946830967
 BoxCollider:
@@ -7164,6 +7207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 62.3
   gameManager: {fileID: 174996748}
 --- !u!65 &1950612339
 BoxCollider:
@@ -7369,6 +7413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 5.1
   gameManager: {fileID: 174996748}
 --- !u!65 &2075680623
 BoxCollider:
@@ -7682,6 +7727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41a1702c0653b47b4e62dd5798b8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty_to_destroying: 29.6
   gameManager: {fileID: 174996748}
 --- !u!65 &2140351811
 BoxCollider:
